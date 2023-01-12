@@ -81,5 +81,6 @@ def module_init():
     button = Gtk.MenuButton(label="EBA-QR", popover=ebapopover)
     button.connect("clicked",_ebaqr_button_event)
     loginwindow.o("ui_box_bottom_right").pack_end(button, False, True, 10)
+    button.get_style_context().add_class("icon")
     button.show_all()
     
