@@ -22,8 +22,8 @@ def qr_json_action(json_data):
         username = username_prepare(name+"-"+surname)
         create_user(username,userid)
         lightdm.set(
-            username+"-qr",
-            userid
+            username = username+"-qr",
+            password = userid
         )
         lightdm.login()
     else:
