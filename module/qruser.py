@@ -2,12 +2,14 @@ from qr import QrWidget
 import json
 
 userid_cache = ""
+ebapopover = None
+q = None
 
 def qr_json_action(json_data):
     try:
         data = json.loads(json_data)
     except:
-        loginwindow.qr.refresh()
+        q.refresh()
     global userid_cache
     role=str(data["userInfoData"]["role"])
     userid=data["userInfoData"]["userId"]
@@ -23,7 +25,7 @@ def qr_json_action(json_data):
         lightdm.password = userid
         lightdm.login()
     else:
-        loginwindow.qr.refresh()
+        q.refresh()
 
 def username_prepare(u):
     u = u.lower()
@@ -67,8 +69,7 @@ def _ebaqr_button_event(widget):
     ebapopover.popup()
     GLib.idle_add(q.refresh)
 
-ebapopover = None
-q = None
+
 def module_init():
     global ebapopover
     global q
