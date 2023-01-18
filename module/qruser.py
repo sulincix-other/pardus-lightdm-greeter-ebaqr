@@ -10,6 +10,7 @@ def qr_json_action(json_data):
         data = json.loads(json_data)
     except:
         q.refresh()
+        return
     global userid_cache
     role=str(data["userInfoData"]["role"])
     userid=data["userInfoData"]["userId"]
