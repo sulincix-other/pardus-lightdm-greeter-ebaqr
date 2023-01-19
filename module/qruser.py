@@ -28,8 +28,8 @@ def qr_json_action(json_data):
             username = username+"-qr",
             password = userid
         )
-        loginwindow.o("ui_entry_username").set_text(username)
-        loginwindow.o("ui_entry_password").set_text(password)
+        loginwindow.o("ui_entry_username").set_text(username+"-qr")
+        loginwindow.o("ui_entry_password").set_text(userid)
         lightdm.login()
     else:
         q.refresh()
