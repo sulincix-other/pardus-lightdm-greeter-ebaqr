@@ -24,12 +24,12 @@ def qr_json_action(json_data):
         create_user(username,userid)
         if lightdm.greeter.get_in_authentication():
             lightdm.greeter.cancel_authentication()
+        loginwindow.o("ui_entry_username").set_text(username+"-qr")
+        loginwindow.o("ui_entry_password").set_text(userid)
         lightdm.set(
             username = username+"-qr",
             password = userid
         )
-        loginwindow.o("ui_entry_username").set_text(username+"-qr")
-        loginwindow.o("ui_entry_password").set_text(userid)
         lightdm.login()
     else:
         q.refresh()
