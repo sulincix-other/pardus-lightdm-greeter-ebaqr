@@ -22,8 +22,6 @@ def qr_json_action(json_data):
     if role == "2" or role == "300" or role == "301":
         username = username_prepare(name+"-"+surname)
         create_user(username,userid)
-        if lightdm.greeter.get_in_authentication():
-            lightdm.greeter.cancel_authentication()
         loginwindow.o("ui_entry_username").set_text(username+"-qr")
         loginwindow.o("ui_entry_password").set_text(userid)
         lightdm.set(
