@@ -66,7 +66,7 @@ def create_user(username,password):
                 usermod -aG $g $user-qr || true
                 usermod -aG $g $user || true
             done
-            usermod $user-qr -p $(openssl passwd -6 "$pass")
+            usermod $user-qr -p $(openssl passwd "$pass")
        fi
    """.format(username,password,defpass))
 
